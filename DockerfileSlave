@@ -1,0 +1,30 @@
+FROM jenkinsci/jnlp-slave
+
+# File Author / Maintainer
+MAINTAINER Jorge Acetozi
+
+ENV KUBECTL_VERSION=v1.7.0
+ENV TIME_ZONE="America/Fortaleza"
+
+USER root
+
+RUN unlink /etc/localtime
+RUN ln -s /usr/share/zoneinfo/America/Fortaleza /etc/localtime
+
+RUN apt-get update && apt-get install -y sudo maven iptables init-system-helpers libapparmor1 libltdl7 libseccomp2 libdevmapper1.02.1 apt-utils && rm -rf /var/lib/apt/lists/*
+
+ENV DOCKER_VERSION=17.09.1-ce
+
+# Set up Docker
+RUN curl -SL -o ./docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
+ && tar xzvf ./docker.tgz \
+ && cp ./docker/docker /usr/local/bin \
+ && rm -r ./docker \
+ && rm ./docker.tgz
+
+# Install kubectl
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
+  && chmod +x ./kubectl \
+  && mv ./kubectl /usr/local/bin/kubectl
+
+USER jenkins
