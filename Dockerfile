@@ -12,7 +12,7 @@ RUN ln -s /usr/share/zoneinfo/America/Fortaleza /etc/localtime
 
 # Install prerequisites for Docker
 # libsystemd-journal0
-RUN apt-get update && apt-get install -y sudo maven iptables init-system-helpers libapparmor1 libltdl7 libseccomp2 libdevmapper1.02.1 apt-utils && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y sudo maven iptables init-system-helpers libapparmor1 libltdl7 libseccomp2 libdevmapper1.02.1 apt-utils gettext-base && rm -rf /var/lib/apt/lists/*
 
 ENV DOCKER_VERSION=17.09.1-ce
 # docker-ce_17.03.0~ce-0~ubuntu-trusty_amd64.deb
