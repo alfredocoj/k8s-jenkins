@@ -39,8 +39,8 @@ spec:
               mountPath: /var/run/docker.sock
           resources:
             limits:
-              cpu: 500m
-              memory: 1024Mi
+              cpu: 1000m
+              memory: 4096Mi
             requests:
               cpu: 500m
               memory: 1024Mi
