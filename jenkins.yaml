@@ -13,6 +13,7 @@ spec:
       containers:
         - name: master
           image: alfredocoj/jenkins-ci-master:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
             - containerPort: 50000
