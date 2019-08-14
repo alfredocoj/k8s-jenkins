@@ -1,3 +1,19 @@
+# Jenkins k8s
+
+K8s deployment to jenkins.
+
+## Commands
+
+```
+kubectl apply -f namespace.yaml
+
+kubectl apply -f jenkins-svc.yaml
+
+kubectl apply -f persistence-volume.yaml
+
+kubectl apply -f jenkins.yaml
+
+```
 ### Referências
 
 https://caylent.com/jenkins-plugins/
