@@ -22,7 +22,7 @@ metadata:
 spec:
   storageClassName: slow
   capacity:
-    storage: 40Gi
+    storage: 80Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
