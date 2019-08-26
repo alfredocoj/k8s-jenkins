@@ -33,6 +33,8 @@ spec:
 #                  key: options
             - name: JAVA_OPTS
               value: '-Xmx1400m'
+            - name: JENKINS_JAVA_OPTIONS
+              value: '-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/Fortaleza -Duser.timezone=America/Fortaleza'
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home

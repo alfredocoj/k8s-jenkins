@@ -5,6 +5,8 @@ EXPOSE 8080 50000
 ENV JENKINS_SLAVE_AGENT_PORT 50000
 ENV TIME_ZONE="America/Fortaleza"
 
+ENV JENKINS_JAVA_OPTIONS="-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/Fortaleza -Duser.timezone=America/Fortaleza"
+
 USER root
 
 RUN unlink /etc/localtime
