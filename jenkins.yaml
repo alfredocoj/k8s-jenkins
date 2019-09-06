@@ -32,7 +32,7 @@ spec:
 #                  name: jenkins
 #                  key: options
             - name: JAVA_OPTS
-              value: '-Xmx1400m'
+              value: '-Xmx1400m -Duser.timezone=America/Fortaleza'
             - name: JENKINS_JAVA_OPTIONS
               value: '-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/Fortaleza -Duser.timezone=America/Fortaleza'
           volumeMounts:
