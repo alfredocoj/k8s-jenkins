@@ -7,7 +7,7 @@ ENV JENKINS_SLAVE_AGENT_PORT 50000
 ENV TIME_ZONE="America/Fortaleza"
 
 ENV JENKINS_JAVA_OPTIONS="-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/Fortaleza -Duser.timezone=America/Fortaleza"
-
+ENV JAVA_OPTS="-Xmx1400m -Duser.timezone=America/Fortaleza"
 USER root
 
 RUN unlink /etc/localtime
@@ -32,5 +32,8 @@ RUN curl -SL -o ./docker.tgz https://download.docker.com/linux/static/stable/x86
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
+
+COPY git.jks $JAVA_HOME/jre/lib/security/git.jks
+RUN keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias git.mateus -import -file $JAVA_HOME/jre/lib/security/git.jks
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
