@@ -33,6 +33,8 @@ RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
 
 COPY git.jks $JAVA_HOME/jre/lib/security/git.jks
+COPY gitlab_mateus.pem $JAVA_HOME/jre/lib/security/gitlab_mateus.pem
 RUN keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias git.mateus -import -file $JAVA_HOME/jre/lib/security/git.jks
+RUN keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias gitlab.mateus -import -file $JAVA_HOME/jre/lib/security/gitlab_mateus.pem
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
