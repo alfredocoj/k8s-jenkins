@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y sudo maven iptables init-system-helpers
 
 ENV DOCKER_VERSION=17.09.1-ce
 # docker-ce_17.03.0~ce-0~ubuntu-trusty_amd64.deb
-ENV KUBERNETES_VERSION=v1.6.6
+ENV KUBERNETES_VERSION=v1.13.3
 
 # Set up Docker
 RUN curl -SL -o ./docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
