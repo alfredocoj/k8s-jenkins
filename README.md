@@ -14,6 +14,20 @@ kubectl apply -f persistence-volume.yaml
 kubectl apply -f jenkins.yaml
 
 ```
+
+### Configuration:
+
+Configura em Configurações de Sistema do Jenkins na parte de Clouds
+ 
+ - Colocar o nome do cluster
+ - Configurar o Kubernetes server certificate key
+    É o decode base64 de certificate-authority-data of cat ~/.kube/config.
+ - Criar também um secrete text com o token administrativo do kubernetes.
+ 
+ Main reference: https://github.com/csaroka/kubernetes-jenkins
+
+Ciar um 
+
 ### Referências
 
 https://caylent.com/jenkins-plugins/
