@@ -24,7 +24,10 @@ Configura em Configurações de Sistema do Jenkins na parte de Clouds
     É o decode base64 de certificate-authority-data of cat ~/.kube/config.
  - Criar também um secrete text com o token administrativo do kubernetes.
  
- Main reference: https://github.com/csaroka/kubernetes-jenkins
+ Main references: 
+ https://github.com/csaroka/kubernetes-jenkins
+ 
+ https://www.base64decode.org/
 
 Ciar um 
 
