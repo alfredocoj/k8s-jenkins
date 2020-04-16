@@ -10,10 +10,12 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
+      nodePort: 32595
       protocol: TCP
       name: http
     - port: 50000
       targetPort: 50000
+      nodePort: 31180
       protocol: TCP
       name: slave
   selector:
